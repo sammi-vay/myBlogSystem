@@ -1,0 +1,46 @@
+<f:layout name="Default" />
+
+<f:section name="Title">Show post"{post.subject}"</f:section>
+
+<f:section name="MainContent">
+
+	<p>
+		<h2>{post.subject}</h2>
+		{post.name}<br>
+		{post.author}<br>
+		{post.content}
+	</p>
+	<hr>
+	<br><br>
+	<h2>Comments</h2>
+	<f:link.action action="new" controller="comment" arguments="{post: post}">
+		Add Comment
+	</f:link.action>
+
+	<f:if condition="{post.comments}">
+		<f:then>
+			<f:for each="{post.comments}" as="comment">
+				<p style="border: 2px solid black; padding: 0.5rem">
+					<span style="font-weight: 600">Author: {comment.author}</span> -
+					<span class="metadata">
+						<f:format.date format="d.m.Y - H:m:s">{comment.date}</f:format.date>
+					</span>
+					<br>{comment.content}<br>
+
+					<f:link.action action="edit" controller="comment" arguments="{post: post, comment: comment}">
+						Edit
+					</f:link.action>
+
+					<f:form action="deleteComment" arguments="{post: post, comment: comment}">
+						<f:form.submit name="deleteComment" value="Delete" />
+					</f:form>
+				</p>
+				<hr>
+			</f:for>
+		</f:then>
+	<f:else>
+		<p>No comments yet</p>
+	</f:else>
+	</f:if>
+	<f:link.action action="index">Back</f:link.action>
+</f:section>

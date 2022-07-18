@@ -1,0 +1,19 @@
+<f:layout name="Default" />
+
+<f:section name="MainContent">
+	<h2>Edit post "{post.subject}"</h2>
+
+	<f:render partial="FormErrors" arguments="{for: 'post'}" />
+	<f:form action="update" object="{post}" objectName="post">
+		<label for="post-author">Author</label>
+		<f:form.textfield property="author" id="post-author" />
+
+		<label for="post-subject">Subject</label>
+		<f:form.textfield property="subject" id="post-subject" />
+
+		<label for="post-content">Content</label>
+		<f:form.textarea property="content" rows="5" cols="30" id="post-content" />
+
+		<f:form.submit name="submit" value="Update Post" />
+	</f:form>
+</f:section>

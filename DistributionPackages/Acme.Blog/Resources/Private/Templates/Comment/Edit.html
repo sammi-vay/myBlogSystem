@@ -1,0 +1,37 @@
+<f:layout name="Default" />
+
+<f:section name="Title">Edit comment "{comment.name}"</f:section>
+
+<f:section name="MainContent">
+    <f:form action="update" object="{comment}" objectName="comment">
+			<f:form.hidden name="post" value="{post}" />
+
+			<f:debug>{post}</f:debug>
+
+			<ol>
+            <li>
+                <label for="date">Date</label>
+                <f:form.textfield type="datetime" value="{comment.date -> f:format.date(format: 'Y-m-d\TH:i:sP')}" property="date" id="date" />
+            </li>
+
+            <li>
+                <label for="author">Author</label>
+                <f:form.textfield property="author" id="author" />
+            </li>
+
+            <li>
+                <label for="emailAddress">Email address</label>
+                <f:form.textfield property="emailAddress" id="emailAddress" />
+            </li>
+
+            <li>
+                <label for="content">Content</label>
+                <f:form.textfield property="content" id="content" />
+            </li>
+
+            <li>
+                <f:form.submit value="Update" />
+            </li>
+        </ol>
+    </f:form>
+</f:section>

@@ -1,0 +1,14 @@
+<f:layout name="Default" />
+
+<f:section name="Title">Edit blog "{blog.name}"</f:section>
+
+<f:section name="MainContent">
+    <f:form action="update" object="{blog}" objectName="blog">
+				<label for="title">Title</label>
+				<f:form.textfield property="title" id="title" />
+				<label for="description">Description</label>
+				<f:form.textfield property="description" id="description" />
+				<br><br>
+				<f:form.submit value="Update" />
+    </f:form>
+</f:section>

@@ -1,0 +1,16 @@
+<h2>{title}</h2>
+
+<f:form action="create" object="{object}" objectName="newComment">
+	<f:form.hidden property="post" value="{post}" />
+
+	<label for="comment-author">Author</label>
+	<f:form.textfield property="author" id="comment-author" />
+
+	<label for="emailAddress">E-Mail</label>
+	<f:form.textfield type="email" property="emailAddress" id="emailAddress" value="test@test.ch"/>
+
+	<label for="content">Content</label>
+	<f:form.textarea style="width: 80%" property="content" id="content" />
+
+	<f:form.submit name="submit" value="{submitLabel}" />
+</f:form>

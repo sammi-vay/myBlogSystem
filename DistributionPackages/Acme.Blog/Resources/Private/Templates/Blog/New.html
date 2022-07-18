@@ -1,0 +1,17 @@
+<f:layout name="Default" />
+
+<f:section name="Title">New blog</f:section>
+
+<f:section name="MainContent">
+    <p>Just fill out the following form to create a new blog:</p>
+
+    <f:form action="create" objectName="newBlog">
+				<label for="title">Title</label>
+				<f:form.textfield property="title" id="title" />
+
+				<label for="description">Description</label>
+				<f:form.textfield property="description" id="description" />
+				<br><br>
+				<f:form.submit value="Create" />
+    </f:form>
+</f:section>

@@ -1,0 +1,31 @@
+<f:layout name="Default" />
+
+<f:section name="Title">New comment</f:section>
+
+<f:section name="MainContent">
+  <p>Just fill out the following form to create a new comment: (create Action)</p>
+
+	<f:if condition="{comment}">
+		<!-- edit comment -->
+		<f:then>
+			<f:render partial="CommentForm" arguments="{
+					title: 'Edit comment from: {post.subject}',
+					object: comment,
+					post: post,
+					submitLabel: 'Edit comment'
+				}"/>
+		</f:then>
+		<!-- new comment -->
+		<f:else>
+			<f:render partial="CommentForm" arguments="{
+					title: 'Add a comment to: {post.subject}',
+					object: comment,
+					post: post,
+					submitLabel: 'Add new comment'
+				}"/>
+		</f:else>
+	</f:if>
+	<br>
+	<f:link.action action="show" controller="post" arguments="{post: post}">Back</f:link.action>
+
+</f:section>

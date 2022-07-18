@@ -1,0 +1,42 @@
+<f:layout name="Default" />
+
+<f:section name="Title">A list of blogs</f:section>
+
+<f:section name="MainContent">
+    <f:if condition="{blogs}">
+        <f:then>
+					<table style="border: 2px solid; width: 100%;">
+						<tr>
+							<th>Blog Name</th>
+							<th>Description</th>
+							<th>Posts</th>
+							<th>Blog Actions</th>
+						</tr>
+
+						<f:for each="{blogs}" as="blog">
+							<tr>
+								<td>
+									<f:link.action action="show" arguments="{blog: blog}">{blog.title}</f:link.action>
+								</td>
+								<td>{blog.description}</td>
+								<td>
+									<f:count>{blog.posts}</f:count>
+									<!-- inline notation: {blog.posts -> f:count()} -->
+								</td>
+								<td>
+									<f:render partial="BlogActions" arguments="{blog: blog}"/>
+								</td>
+							</tr>
+						</f:for>
+
+					</table>
+        </f:then>
+				<!-- No Blogs in Blog-Repository -->
+        <f:else>
+            <p>No blogs created yet.</p>
+        </f:else>
+    </f:if>
+    <p><f:link.action action="new">Create a new blog</f:link.action></p>
+
+
+</f:section>

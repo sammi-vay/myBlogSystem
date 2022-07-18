@@ -1,0 +1,18 @@
+{
+    "description": "",
+    "type": "neos-package",
+    "name": "acme/blog",
+    "require": {
+        "neos/flow": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Acme\\Blog\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Acme.Blog"
+        }
+    }
+}
